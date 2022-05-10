@@ -1,0 +1,71 @@
+<div <% if (title!='Home' ) { %>
+    class="bg-dark navigation"
+    <% } %>>
+        <div class="container">
+            <header class="d-flex flex-wrap justify-content-center <% if (title == 'Home') { %>
+              py-3
+             <% } else { %>
+              py-1
+              <% } %> navbar-con">
+                <a href="/" class="d-flex mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                    <span class="<% if (title == 'Home') { %>
+                     display-5
+                    <% } else { %>
+                     display-6
+                     <% } %>
+                      navtit">Desaku</span>
+                </a>
+
+                <ul class="nav mt-2 <% if (title == 'Home') { %>
+                  fs-5
+                 <% } else { %>
+                  fs-6
+                  <% } %>">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href='#' id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Tentang Desaku
+                </a>
+                        <ul class="dropdown-menu <% if (title == 'Home') { %>
+                          dropdown-menu-light border-start-0 border-bottom-0 border-end-0 border-3 border-success
+                        <% } else { %>
+                          dropdown-menu-dark border-start-0 border-bottom-0 border-end-0 border-3 border-success
+                         <% } %> " aria-labelledby="navbarDarkDropdownMenuLink">
+                            <li><a class="dropdown-item" href="/tentang-desaku/sekilas">Sekilas Desaku</a></li>
+                            <li><a class="dropdown-item" href='#'>Sejarah Desaku</a></li>
+                            <li><a class="dropdown-item" href='#'>Visi Misi</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href='#' id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Profil
+              </a>
+                        <ul class="dropdown-menu <% if (title == 'Home') { %>
+                dropdown-menu-light border-start-0 border-bottom-0 border-end-0 border-3 border-success
+              <% } else { %>
+                dropdown-menu-dark border-start-0 border-bottom-0 border-end-0 border-3 border-success
+               <% } %> " aria-labelledby="navbarDarkDropdownMenuLink">
+                            <li><a class="dropdown-item" href='#'>Ketua dan Wakil RT</a></li>
+                            <li><a class="dropdown-item" href='#'>Struktur Kepengurusan Desa</a></li>
+                            <li><a class="dropdown-item" href='#'>Organisasi Pemuda</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href='#' id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Budaya
+            </a>
+                        <ul class="dropdown-menu <% if (title == 'Home') { %>
+              dropdown-menu-light border-start-0 border-bottom-0 border-end-0 border-3 border-success
+            <% } else { %>
+              dropdown-menu-dark border-start-0 border-bottom-0 border-end-0 border-3 border-success
+             <% } %> " aria-labelledby="navbarDarkDropdownMenuLink">
+                            <li><a class="dropdown-item" href='#'>Alam dan Satwa</a></li>
+                            <li><a class="dropdown-item" href='#'>Kuliner</a></li>
+                            <li><a class="dropdown-item" href='#'>Masyarakat</a></li>
+                        </ul>
+                    </li>
+                    <a class="nav-link" href="/berita">Berita</a>
+                    <a class="nav-link" href='#'>Kontak</a>
+                </ul>
+            </header>
+        </div>
+</div>

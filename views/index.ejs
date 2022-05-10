@@ -1,0 +1,36 @@
+<div class="layer">
+    <div class="cover-container d-flex w-50 p-3 mx-auto flex-column justify-content-center text-center ">
+        <main class="px-3 text-white">
+            <h1 class="display-1 mb-5 textcov" data-aos="fade-up" data-aos-duration="1000">Selamat Datang</h1>
+            <p class="fs-1 textcov" data-aos="fade-up" data-aos-duration="3000">Mari wujudkan desa yang lebih baik dengan sumber daya yang maju dan berkualitas</p>
+        </main>
+    </div>
+</div>
+
+<div class="bg-light">
+    <div class="album my-3">
+        <div class="container home-news">
+            <h1 class="mb-5 text-center">Berita Terbaru</h1>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 py-5 g-5 news">
+                <% news.forEach(berita => { %>
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img src="<%= berita.gambar %> " class="card-img-top card-image" alt="..." ">
+                            <div class="card-body ">
+                                <a href="# " class="fs-5 "><%= berita.berita %> </a>
+                                <p class="card-text "><small class="text-muted "><i class="bi bi-calendar3 "></i>&nbsp;<%= berita.date.getDate()%>/<%= berita.date.getMonth()%>/<%= berita.date.getFullYear()%> </small></p>
+                                <p class="card-text "><%= berita.ringkasan %> </p>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+
+    <div class="px-4 text-center message ">
+        <img class="d-block mx-auto mb-4 " src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg " alt="logo " width="100 " height="85 ">
+        <div class="col-lg-6 mx-auto ">
+          <p class="lead ">Kami dari segenap pamong desa, akan terus melakukan peningkatan secara optimal sehingga dapat menjadi desa yang dikenal dunia</p>
+        </div>
+    </div>

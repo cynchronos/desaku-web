@@ -1,0 +1,22 @@
+<div class="album">
+    <div class="container news">
+        <h1 class="mb-5 text-center">Berita Terbaru</h1>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 py-5 g-5 news">
+            <% news.forEach(berita => { %>
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="<%= berita.gambar %> " class="card-img-top card-image" alt="..." ">
+                        <div class="card-body ">
+                            <a href='/berita/<%= berita.slug %> ' class="fs-5 "><%= berita.berita %> </a>
+                            <p class="card-text "><small class="text-muted "><i class="bi bi-calendar3 "></i>&nbsp;<%= berita.date.getDate()%>/<%= berita.date.getMonth()%>/<%= berita.date.getFullYear()%> </small></p>
+                            <p class="card-text "><%= berita.ringkasan %> </p>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+        <form action="/berita/add " method='post'>
+            <button type="submit ">tambah berita</button>
+        </form>
+    </div>
+</div>

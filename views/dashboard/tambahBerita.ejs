@@ -1,0 +1,20 @@
+<div class="card">
+    <div class="mx-3 my-3">
+        <form action="/dashboard/berita" method="POST">
+            <div class="form-group">
+                <label for="berita" class="form-control-label">Judul Berita</label>
+                <input class="form-control" type="text" id="berita" name="berita">
+            </div>
+            <div class="form-group">
+                <label for="slug" class="form-control-label">Slug</label>
+                <input class="form-control" type="text" id="slug" name="slug">
+            </div>
+            <div class="form-group">
+                <label for="isi">Konten Berita</label>
+                <input id="isi" type="hidden" name="isi">
+                <trix-editor input="isi" class="form-control"></trix-editor>
+            </div>
+            <button type="submit" class="btn bg-gradient-success col-lg-2">Tambah</button>
+        </form>
+    </div>
+</div>

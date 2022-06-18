@@ -12,18 +12,18 @@
         <div class="container home-news">
             <h1 class="mb-5 text-center">Berita Terbaru</h1>
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 py-5 g-5 news">
-                <% news.forEach(berita => { %>
+                <% for (let i = 0; i < 3; i++){ %>
                     <div class="col">
                         <div class="card shadow-sm">
-                            <img src="<%= berita.gambar %> " class="card-img-top card-image" alt="..." ">
+                            <img src="<%= news[i].gambar %> " class="card-img-top card-image" alt="..." ">
                             <div class="card-body ">
-                                <a href="# " class="fs-5 "><%= berita.berita %> </a>
-                                <p class="card-text "><small class="text-muted "><i class="bi bi-calendar3 "></i>&nbsp;<%= berita.date.getDate()%>/<%= berita.date.getMonth()%>/<%= berita.date.getFullYear()%> </small></p>
-                                <p class="card-text "><%= berita.ringkasan %> </p>
+                                <a href='/berita/<%= news[i].slug %>' class="fs-5 "><%= news[i].berita %> </a>
+                                <p class="card-text "><small class="text-muted "><i class="bi bi-calendar3 "></i>&nbsp;<%= news[i].date.getDate()%>/<%= news[i].date.getMonth()%>/<%= news[i].date.getFullYear()%> </small></p>
+                                <p class="card-text "><%-news[i].isi.substring(0,200) %>...</p>
                             </div>
                         </div>
                     </div>
-                <% }) %>
+                <% } %>
             </div>
         </div>
     </div>

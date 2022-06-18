@@ -5,18 +5,15 @@
             <% news.forEach(berita => { %>
                 <div class="col">
                     <div class="card shadow-sm">
-                        <img src="<%= berita.gambar %> " class="card-img-top card-image" alt="..." ">
+                        <img src="<%= berita.gambar %> " class="card-img-top card-image" alt="image" ">
                         <div class="card-body ">
-                            <a href='/berita/<%= berita.slug %> ' class="fs-5 "><%= berita.berita %> </a>
+                            <a href='/berita/<%= berita.slug %>' class="fs-5 "><%= berita.berita %> </a>
                             <p class="card-text "><small class="text-muted "><i class="bi bi-calendar3 "></i>&nbsp;<%= berita.date.getDate()%>/<%= berita.date.getMonth()%>/<%= berita.date.getFullYear()%> </small></p>
-                            <p class="card-text "><%= berita.ringkasan %> </p>
+                            <p class="card-text "><%- berita.isi.substring(0,200)%>...</p>
                         </div>
                     </div>
                 </div>
             <% }) %>
         </div>
-        <form action="/berita/add " method='post'>
-            <button type="submit ">tambah berita</button>
-        </form>
     </div>
 </div>

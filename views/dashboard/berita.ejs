@@ -1,0 +1,57 @@
+<a href="/dashboard/berita/tambah"><button type="button" class="btn bg-gradient-success col-lg-2">Tambah Berita</button></a>
+<div class="card">
+    <div class="table-responsive">
+        <table class="table align-items-center mb-0">
+            <thead>
+                <tr>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Judul</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ringkasan</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Upload</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Gambar</th>
+                    <th class="text-secondary opacity-7"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% berita.forEach(news => { %>
+
+                    <tr>
+                        <td>
+                            <div class="d-flex px-2 py-1">
+                                <div class="d-flex flex-column justify-content-center">
+                                    <a href="/berita/<%= news.slug %>" class="mb-0 text-xs fw-bold">
+                                        <%= news.berita %>
+                                    </a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <p class="text-xs fw-bold mb-0 isi">
+                                <%- news.isi.substring(0,50) %>...
+                            </p>
+                        </td>
+                        <td>
+                            <p class="text-xs font-weight-bold mb-0 text-center">
+                                <%= news.date.getDate()%>/
+                                    <%= news.date.getMonth()%>/
+                                        <%= news.date.getFullYear()%>
+                            </p>
+                        </td>
+                        <td class="align-middle text-center">
+                            <span class="text-secondary text-xs font-weight-bold"><a href="<%= news.gambar %> "><%= news.gambar.substring(0,50) %></a></span>
+                        </td>
+                        <td class="align-middle">
+                            <a href="/dashboard/berita/edit/<%= news._id %>" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">Edit</a>
+                            <form method="post" action="/dashboard/berita?_method=DELETE" class="d-inline">
+                                <input type="hidden" name="id" value="<%= news._id %>">
+                                <button type="submit" class="text-secondary font-weight-bold text-xs bg-transparent border-0 m-1">Delete</button>
+                            </form>
+                        </td>
+                        </td>
+
+                    </tr>
+
+                    <% }) %>
+            </tbody>
+        </table>
+    </div>
+</div>

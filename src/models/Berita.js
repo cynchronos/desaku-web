@@ -13,10 +13,6 @@ const beritaSchema = new mongoose.Schema({
         type: Date,
         required: 'Field Harus Diisi'
     },
-    ringkasan: {
-        type: String,
-        required: 'Field Harus Diisi'
-    },
     isi: {
         type: String,
         required: 'Field Harus Diisi'

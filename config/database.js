@@ -12,3 +12,4 @@ db.once('open', function() {
 });
 
 require('../src/models/Berita');
+require('../src/models/User');

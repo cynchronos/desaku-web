@@ -1,4 +1,5 @@
 const express = require('express');
+require('express-router-group');
 const router = express.Router();
 const homeController = require('../controllers/homeController');
 const beritaController = require('../controllers/beritaController');
@@ -6,6 +7,7 @@ const loginController = require('../controllers/loginController');
 const dashboardHomeController = require('../controllers/dashboard/dashboardHomeController')
 const dashboardBeritaController = require('../controllers/dashboard/dashboardBeritaController')
 const urlEncoded = express.urlencoded({ extended: true });
+
 
 // User Routes
 router.get('/', homeController.index);
@@ -20,23 +22,28 @@ router.get('/berita/:slug', beritaController.details)
 router.get('/login-dashboard', loginController.index);
 
 // router.post('/login-dashboard/user/add', loginController.add);
+// Create Route Group
 
 router.post('/login-dashboard', urlEncoded, loginController.auth);
 
-router.get('/dashboard', loginController.verifyLogin, dashboardHomeController.index);
+router.group('/dashboard', loginController.verifyLogin, router => {
 
-router.get('/dashboard/berita', loginController.verifyLogin, dashboardBeritaController.index);
+    router.get('/', dashboardHomeController.index);
 
-router.get('/dashboard/berita/tambah', loginController.verifyLogin, dashboardBeritaController.create);
+    router.get('/berita', dashboardBeritaController.index);
 
-router.post('/dashboard/berita', dashboardBeritaController.store);
+    router.get('/berita/tambah', dashboardBeritaController.create);
 
-router.get('/dashboard/berita/edit/:_id', loginController.verifyLogin, dashboardBeritaController.edit);
+    router.post('/berita', dashboardBeritaController.store);
 
-router.put('/dashboard/berita', loginController.verifyLogin, dashboardBeritaController.update);
+    router.get('/berita/edit/:_id', dashboardBeritaController.edit);
 
-router.delete('/dashboard/berita', loginController.verifyLogin, dashboardBeritaController.destroy);
+    router.put('/berita', dashboardBeritaController.update);
 
-router.get('/dashboard/logout', loginController.logout)
+    router.delete('/berita', dashboardBeritaController.destroy);
+
+    router.get('/logout', loginController.logout)
+
+});
 
 module.exports = { router };
